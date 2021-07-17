@@ -1,7 +1,7 @@
 # Dynamic Generated
-Driver/SmBiosTableDxe/ReleaseInfo.h
-Application/BdsMenuApp/ReleaseInfo.h
-Include/Resources/ReleaseInfo.h
+Platforms/Lumia950XlPkg/Driver/SmBiosTableDxe/ReleaseInfo.h
+Platforms/Lumia950XlPkg/Application/BdsMenuApp/ReleaseInfo.h
+Platforms/Lumia950XlPkg/Include/Resources/ReleaseInfo.h
 
 # Local
 .DS_Store
@@ -9,18 +9,18 @@ Include/Resources/ReleaseInfo.h
 .vscode
 
 # Variable Services: Defer
-Driver/BlockRamVariableDxe
-Driver/FaultTolerantWriteDxe
-Driver/VariableRuntimeDxe
-Library/BlockRamVariableLib
+Platforms/Lumia950XlPkg/Driver/BlockRamVariableDxe
+Platforms/Lumia950XlPkg/Driver/FaultTolerantWriteDxe
+Platforms/Lumia950XlPkg/Driver/VariableRuntimeDxe
+Platforms/Lumia950XlPkg/Library/BlockRamVariableLib
 
 # USB: Defer
-Driver/UsbTypeCDxe
+Platforms/Lumia950XlPkg/Driver/UsbTypeCDxe
 
 # RTC: Defer
-Library/QcomPmicRealTimeClockLib
+Platforms/Lumia950XlPkg/Library/QcomPmicRealTimeClockLib
 
 # SSDT
-AcpiTables/8992/generated
-AcpiTables/8994/generated
-AcpiTables/Hapanero/generated
+Platforms/Lumia950XlPkg/AcpiTables/8992/generated
+Platforms/Lumia950XlPkg/AcpiTables/8994/generated
+Platforms/Lumia950XlPkg/AcpiTables/Hapanero/generated
