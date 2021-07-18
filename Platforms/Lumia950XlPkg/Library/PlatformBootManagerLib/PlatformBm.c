@@ -447,6 +447,11 @@ VOID EFIAPI PlatformBootManagerWaitCallback(UINT16 TimeoutRemain)
 }
 
 /**
+BDS Entry  - DXE phase complete, BDS Entered.
+*/
+VOID EFIAPI PlatformBootManagerBdsEntry(VOID) { return; }
+
+/**
   The function is called when no boot option could be launched,
   including platform recovery options and options pointing to applications
   built into firmware volumes.
@@ -469,4 +474,19 @@ VOID EFIAPI PlatformBootManagerUnableToBoot(VOID)
   for (;;) {
     EfiBootManagerBoot(&BootManagerMenu);
   }
+}
+
+/**
+ HardKeyBoot
+*/
+VOID EFIAPI PlatformBootManagerPriorityBoot(UINT16 **BootNext) { return; }
+
+/**
+ This is called from BDS right before going into front page
+ when no bootable devices/options found
+*/
+VOID EFIAPI PlatformBootManagerProcessBootCompletion(
+    IN EFI_BOOT_MANAGER_LOAD_OPTION *BootOption)
+{
+  return;
 }

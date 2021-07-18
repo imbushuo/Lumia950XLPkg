@@ -24,3 +24,16 @@ Platforms/Lumia950XlPkg/Library/QcomPmicRealTimeClockLib
 Platforms/Lumia950XlPkg/AcpiTables/8992/generated
 Platforms/Lumia950XlPkg/AcpiTables/8994/generated
 Platforms/Lumia950XlPkg/AcpiTables/Hapanero/generated
+
+/Build/
+.DS_Store
+*_extdep/
+*.pyc
+__pycache__/
+tags/
+.vscode/
+*.bak
+BuildConfig.conf
+
+/Conf/
+/Lumia950Xl/

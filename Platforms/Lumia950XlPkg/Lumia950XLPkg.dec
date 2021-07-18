@@ -195,6 +195,8 @@
   # 93be6759-7d1a-4d69-986d-d78e54c9f930
   gLumia950XLPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }|VOID*|0x00000401
 
+  gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupported|FALSE|BOOLEAN|0x0000a406
+
 [PcdsFeatureFlag.common]
   # MMCHSDxe
   gQcomTokenSpaceGuid.PcdMmcAdmSupport|FALSE|BOOLEAN|0x00010001

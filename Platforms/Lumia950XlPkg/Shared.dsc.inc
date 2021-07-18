@@ -235,6 +235,8 @@
   gLumia950XLPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000
   gLumia950XLPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|TRUE
 
+  gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupported|FALSE
+
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoVerticalResolution|1920
@@ -317,7 +319,7 @@
   TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
 
   # Platform Drivers
-!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
+!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 0
   SerialPortLib|Lumia950XLPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !else
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
@@ -369,6 +371,16 @@
   # UI Llbrary and apps
   LittleVglLib|Lumia950XLPkg/Library/LittleVglLib/LittleVglLib.inf
   LodePngLib|Lumia950XLPkg/Library/LodePngLib/LodePngLib.inf
+  
+  ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
+  MemoryProtectionLib|MdeModulePkg/Library/BaseMemoryProtectionLibNull/BaseMemoryProtectionLibNull.inf
+  MemoryTypeInformationChangeLib|MdeModulePkg/Library/MemoryTypeInformationChangeLibNull/MemoryTypeInformationChangeLibNull.inf
+  PcdDatabaseLoaderLib|MdeModulePkg/Library/PcdDatabaseLoaderLib/Dxe/PcdDatabaseLoaderLibDxe.inf
+
+  BaseBinSecurityLib|MdePkg/Library/BaseBinSecurityLibNull/BaseBinSecurityLibNull.inf
+  ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
+  SecurityLockAuditLib|MdeModulePkg/Library/SecurityLockAuditLibNull/SecurityLockAuditLibNull.inf
+  MemoryTypeInfoSecVarCheckLib|MdeModulePkg/Library/MemoryTypeInfoSecVarCheckLib/MemoryTypeInfoSecVarCheckLib.inf
 
 [LibraryClasses.common.SEC]
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
@@ -595,7 +607,7 @@
       NULL|MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf
       NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
   }
-  Lumia950XLPkg/Driver/LogoDxe/LogoDxe.inf
+  # Lumia950XLPkg/Driver/LogoDxe/LogoDxe.inf
   Lumia950XLPkg/Application/BootSplashApp/BootSplashApp.inf
 
   # Disk IO
