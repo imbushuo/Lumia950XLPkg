@@ -50,3 +50,4 @@
   gLumia950XLPkgTokenSpaceGuid.PcdIs4GBSystem|FALSE
 
 !include Lumia950XLPkg/Shared.dsc.inc
+!include FrontpageDsc.inc

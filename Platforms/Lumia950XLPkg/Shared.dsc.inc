@@ -156,8 +156,8 @@
   gEfiMdePkgTokenSpaceGuid.PcdDefaultTerminalType|4 
 
   # Boot Manager
-  gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x21, 0xaa, 0x2c, 0x46, 0x14, 0x76, 0x03, 0x45, 0x83, 0x6e, 0x8a, 0xb6, 0xf4, 0x66, 0x23, 0x31 }
-  gLumia950XLPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }
+  # gEfiMdeModulePkgTokenSpaceGuid.PcdBootManagerMenuFile|{ 0x21, 0xaa, 0x2c, 0x46, 0x14, 0x76, 0x03, 0x45, 0x83, 0x6e, 0x8a, 0xb6, 0xf4, 0x66, 0x23, 0x31 }
+  # gLumia950XLPkgTokenSpaceGuid.PcdBootSplashAppFile|{ 0x59, 0x67, 0xbe, 0x93, 0x1a, 0x7d, 0x69, 0x4d, 0x6d, 0x98, 0x30, 0xf9, 0xc9, 0x54, 0x8e, 0xd7 }
   gEfiMdePkgTokenSpaceGuid.PcdPlatformBootTimeOut|2
 
   # Enable Debug
@@ -235,7 +235,7 @@
   gLumia950XLPkgTokenSpaceGuid.SecondaryCpuMpParkRegionBase|0x00300000
   gLumia950XLPkgTokenSpaceGuid.SecondaryCpuIgnoreCpuIdCheck|TRUE
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupported|FALSE
+  # gEfiMdeModulePkgTokenSpaceGuid.PcdPlatformRecoverySupported|FALSE
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1080
@@ -319,7 +319,7 @@
   TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
 
   # Platform Drivers
-!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 0
+!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
   SerialPortLib|Lumia950XLPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
 !else
   SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
@@ -327,7 +327,8 @@
   
   MemoryInitPeiLib|Lumia950XLPkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
   PlatformPeiLib|Lumia950XLPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
-  PlatformBootManagerLib|Lumia950XLPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
+  # PlatformBootManagerLib|Lumia950XLPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
+  PlatformBootManagerLib|ArmPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
 
   # SoC Drivers
   InterruptsLib|Lumia950XLPkg/Library/InterruptsLib/InterruptsLib.inf
@@ -369,9 +370,19 @@
   QcomPlatformClock2Lib|Lumia950XLPkg/Library/QcomPlatformClock2Lib/QcomPlatformClock2Lib.inf
 
   # UI Llbrary and apps
-  LittleVglLib|Lumia950XLPkg/Library/LittleVglLib/LittleVglLib.inf
-  LodePngLib|Lumia950XLPkg/Library/LodePngLib/LodePngLib.inf
-  
+  # LittleVglLib|Lumia950XLPkg/Library/LittleVglLib/LittleVglLib.inf
+  # LodePngLib|Lumia950XLPkg/Library/LodePngLib/LodePngLib.inf
+
+  # FrontPage
+  PasswordPolicyLib|OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
+  MsSecureBootLib|OemPkg/Library/MsSecureBootLib/MsSecureBootLib.inf
+  PlatformKeyLib|OemPkg/Library/PlatformKeyLibNull/PlatformKeyLibNull.inf
+  RngLib|MdePkg/Library/BaseRngLibNull/BaseRngLibNull.inf
+  MsPlatformDevicesLib|PcBdsPkg/Library/MsPlatformDevicesLibNull/MsPlatformDevicesLibNull.inf
+  DfciSettingChangedNotificationLib|DfciPkg/Library/DfciSettingChangedNotificationLib/DfciSettingChangedNotificationLibNull.inf
+  DfciDeviceIdSupportLib|DfciPkg/Library/DfciDeviceIdSupportLibNull/DfciDeviceIdSupportLibNull.inf
+  PlatformThemeLib|MsGraphicsPkg/Library/SamplePlatformThemeLib/PlatformThemeLib.inf
+
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
   MemoryProtectionLib|MdeModulePkg/Library/BaseMemoryProtectionLibNull/BaseMemoryProtectionLibNull.inf
   MemoryTypeInformationChangeLib|MdeModulePkg/Library/MemoryTypeInformationChangeLibNull/MemoryTypeInformationChangeLibNull.inf
@@ -552,7 +563,7 @@
   Lumia950XLPkg/Driver/TimerDxe/TimerDxe.inf
 
   # PreLoader checker
-  Lumia950XLPkg/Driver/PreLoaderDxe/PreLoaderDxe.inf
+  # Lumia950XLPkg/Driver/PreLoaderDxe/PreLoaderDxe.inf
 
   # Device Drivers
   Lumia950XLPkg/Driver/SynapticsTouchDxe/SynapticsTouchDevice.inf
@@ -601,14 +612,14 @@
   MdeModulePkg/Universal/SetupBrowserDxe/SetupBrowserDxe.inf
   MdeModulePkg/Universal/DriverHealthManagerDxe/DriverHealthManagerDxe.inf
   MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
-  Lumia950XLPkg/Application/BdsMenuApp/BdsMenuApp.inf {
-    <LibraryClasses>
-      NULL|MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf
-      NULL|MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf
-      NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
-  }
+  # Lumia950XLPkg/Application/BdsMenuApp/BdsMenuApp.inf {
+  #   <LibraryClasses>
+  #     NULL|MdeModulePkg/Library/DeviceManagerUiLib/DeviceManagerUiLib.inf
+  #     NULL|MdeModulePkg/Library/BootManagerUiLib/BootManagerUiLib.inf
+  #     NULL|MdeModulePkg/Library/BootMaintenanceManagerUiLib/BootMaintenanceManagerUiLib.inf
+  # }
   # Lumia950XLPkg/Driver/LogoDxe/LogoDxe.inf
-  Lumia950XLPkg/Application/BootSplashApp/BootSplashApp.inf
+  # Lumia950XLPkg/Application/BootSplashApp/BootSplashApp.inf
 
   # Disk IO
   MdeModulePkg/Universal/Disk/DiskIoDxe/DiskIoDxe.inf
@@ -627,22 +638,22 @@
   MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
 
   # Shell
-  ShellPkg/Application/Shell/Shell.inf {
-    <LibraryClasses>
-      ShellCommandLib|ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf
-      NULL|ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
-      NULL|ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
-      HandleParsingLib|ShellPkg/Library/UefiHandleParsingLib/UefiHandleParsingLib.inf
-      PrintLib|MdePkg/Library/BasePrintLib/BasePrintLib.inf
-      BcfgCommandLib|ShellPkg/Library/UefiShellBcfgCommandLib/UefiShellBcfgCommandLib.inf
-
-    <PcdsFixedAtBuild>
-      gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0xFF
-      gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
-      gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|8000
-  }
+  # ShellPkg/Application/Shell/Shell.inf {
+  #   <LibraryClasses>
+  #     ShellCommandLib|ShellPkg/Library/UefiShellCommandLib/UefiShellCommandLib.inf
+  #     NULL|ShellPkg/Library/UefiShellLevel2CommandsLib/UefiShellLevel2CommandsLib.inf
+  #     NULL|ShellPkg/Library/UefiShellLevel1CommandsLib/UefiShellLevel1CommandsLib.inf
+  #     NULL|ShellPkg/Library/UefiShellLevel3CommandsLib/UefiShellLevel3CommandsLib.inf
+  #     NULL|ShellPkg/Library/UefiShellDriver1CommandsLib/UefiShellDriver1CommandsLib.inf
+  #     NULL|ShellPkg/Library/UefiShellDebug1CommandsLib/UefiShellDebug1CommandsLib.inf
+  #     NULL|ShellPkg/Library/UefiShellInstall1CommandsLib/UefiShellInstall1CommandsLib.inf
+  #     NULL|ShellPkg/Library/UefiShellNetwork1CommandsLib/UefiShellNetwork1CommandsLib.inf
+  #     HandleParsingLib|ShellPkg/Library/UefiHandleParsingLib/UefiHandleParsingLib.inf
+  #     PrintLib|MdePkg/Library/BasePrintLib/BasePrintLib.inf
+  #     BcfgCommandLib|ShellPkg/Library/UefiShellBcfgCommandLib/UefiShellBcfgCommandLib.inf
+  #  
+  #   <PcdsFixedAtBuild>
+  #     gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0xFF
+  #     gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
+  #     gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|8000
+  # }

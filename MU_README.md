@@ -34,9 +34,12 @@ apt-get install -y powershell
 # Linaro Toolchains
 cd /opt
 wget http://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-elf/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf.tar.xz
+wget http://releases.linaro.org/components/toolchain/binaries/7.4-2019.02/aarch64-linux-gnu/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu.tar.xz
 tar xf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf.tar.xz
-sudo update-alternatives --install /usr/bin/gcc gcc /opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf/bin/aarch64-elf-gcc 70
-sudo update-alternatives --install /usr/bin/gcc-ar gcc-ar /opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf/bin/aarch64-elf-gcc-ar 70
+tar xf gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu.tar.xz
+sudo update-alternatives --install /usr/bin/gcc gcc /opt/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc 70
+sudo update-alternatives --install /usr/bin/gcc-ar gcc-ar /opt/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-gcc-ar 70
+export PATH="$PATH:/opt/gcc-linaro-7.4.1-2019.02-x86_64_aarch64-linux-gnu/bin"
 
 # Activate Workspace
 python3 -m venv Lumia950Xl
