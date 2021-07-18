@@ -4,6 +4,7 @@ Quick notes for building:
 - Generate ACPI tables with IASL
 - Follow this quick draft
 
+```
 # Mono
 apt-get install gnupg ca-certificates
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -53,3 +54,4 @@ $env:PATH = "/opt/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-elf/bin:/opt/gcc-linar
 Import-Module ./Tools/PsModules/redirector.psm1
 Import-Module ./Tools/PsModules/elf.psm1
 Copy-ElfImages
+```
