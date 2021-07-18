@@ -12,7 +12,7 @@
 	branch = release/202102
 [submodule "Common/MU_OEM_SAMPLE"]
 	path = Common/MU_OEM_SAMPLE
-	url = https://github.com/microsoft/mu_oem_sample.git
+	url = https://github.com/WOA-Project/mu_oem_sample.git
 	branch = release/202102
 [submodule "Silicon/ARM/TIANO"]
 	path = Silicon/ARM/TIANO
