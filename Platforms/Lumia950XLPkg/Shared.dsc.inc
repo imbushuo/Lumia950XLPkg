@@ -657,5 +657,3 @@
   #     gEfiShellPkgTokenSpaceGuid.PcdShellLibAutoInitialize|FALSE
   #     gEfiMdePkgTokenSpaceGuid.PcdUefiLibMaxPrintBufferSize|8000
   # }
-  
-  OemPkg/DeviceStatePei/DeviceStatePei.inf
