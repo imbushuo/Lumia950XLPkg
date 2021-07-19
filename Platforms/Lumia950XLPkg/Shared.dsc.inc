@@ -248,6 +248,135 @@
 !include MdePkg/MdeLibs.dsc.inc
 	  
 [LibraryClasses.common]
+  PcdLib     |MdePkg/Library/DxePcdLib/DxePcdLib.inf
+  TimerLib   |ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
+  PrintLib   |MdePkg/Library/BasePrintLib/BasePrintLib.inf
+  BaseLib    |MdePkg/Library/BaseLib/BaseLib.inf
+  UefiLib    |MdePkg/Library/UefiLib/UefiLib.inf
+  HiiLib     |MdeModulePkg/Library/UefiHiiLib/UefiHiiLib.inf
+  
+  # Services tables/Entry points
+  UefiBootServicesTableLib    |MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf
+  UefiRuntimeServicesTableLib |MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
+  UefiDriverEntryPoint        |MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf
+  UefiApplicationEntryPoint   |MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint.inf
+  DxeServicesLib              |MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
+  DxeServicesTableLib         |MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf
+  UefiHiiServicesLib          |MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib.inf
+  
+  # Math Libraries
+  SafeIntLib   |MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
+  
+  # PeCoff Libraries
+  PeCoffLib              |MdePkg/Library/BasePeCoffLib/BasePeCoffLib.inf
+  PeCoffGetEntryPointLib |MdePkg/Library/BasePeCoffGetEntryPointLib/BasePeCoffGetEntryPointLib.inf
+  
+  # Debug Libraries
+  DebugPrintErrorLevelLib |MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
+  PerformanceLib          |MdePkg/Library/BasePerformanceLibNull/BasePerformanceLibNull.inf
+  PeCoffExtraActionLib    |MdePkg/Library/BasePeCoffExtraActionLibNull/BasePeCoffExtraActionLibNull.inf
+  DebugAgentLib           |MdeModulePkg/Library/DebugAgentLibNull/DebugAgentLibNull.inf
+  
+  # Whea Libraries
+  ##MsWheaEarlyStorageLib |MsWheaPkg/Library/MsWheaEarlyStorageLibNull/MsWheaEarlyStorageLibNull.inf
+  ##MuTelemetryHelperLib  |MsWheaPkg/Library/MuTelemetryHelperLib/MuTelemetryHelperLib.inf
+
+  # Boot and Boot Policy
+  UefiBootManagerLib       |MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
+  ##MsBootPolicyLib          |OemPkg/Library/MsBootPolicyLib/MsBootPolicyLib.inf
+  ##DeviceBootManagerLib     |PcBdsPkg/Library/DeviceBootManagerLib/DeviceBootManagerLib.inf
+  ##MsAltBootLib             |OemPkg/Library/MsAltBootLib/MsAltBootLib.inf # interfaces with alternate boot variable
+  ##MsBootOptionsLib         |PcBdsPkg/Library/MsBootOptionsLib/MsBootOptionsLib.inf # attached to BdsDxe to implement Microsoft extensions to UefiBootManagerLib.
+  ##MsBootManagerSettingsLib |PcBdsPkg/Library/MsBootManagerSettingsDxeLib/MsBootManagerSettingsDxeLib.inf
+  
+  # UI and graphics
+  BmpSupportLib            |MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
+  BootLogoLib              |MdeModulePkg/Library/BootLogoLib/BootLogoLib.inf
+  ##BootGraphicsProviderLib  |OemPkg/Library/BootGraphicsProviderLib/BootGraphicsProviderLib.inf #  uses PCDs and raw files in the firmware volumes to get Pcd
+  CustomizedDisplayLib     |MdeModulePkg/Library/CustomizedDisplayLib/CustomizedDisplayLib.inf
+  FrameBufferBltLib        |MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
+  ##BootGraphicsLib          |MsGraphicsPkg/Library/BootGraphicsLib/BootGraphicsLib.inf
+  ##GraphicsConsoleHelperLib |PcBdsPkg/Library/GraphicsConsoleHelperLib/GraphicsConsoleHelper.inf
+  ##DisplayDeviceStateLib    |MsGraphicsPkg/Library/ColorBarDisplayDeviceStateLib/ColorBarDisplayDeviceStateLib.inf # Display the On screen notifications for the platform using color bars
+  ##UIToolKitLib             |MsGraphicsPkg/Library/SimpleUIToolKit/SimpleUIToolKit.inf
+  ##MsColorTableLib          |MsGraphicsPkg/Library/MsColorTableLib/MsColorTableLib.inf
+  ##SwmDialogsLib            |MsGraphicsPkg/Library/SwmDialogsLib/SwmDialogs.inf #  Dialog Boxes in a Simple Window Manager environment.
+  ##DeviceStateLib           |MdeModulePkg/Library/DeviceStateLib/DeviceStateLib.inf
+  ##UiRectangleLib           |MsGraphicsPkg/Library/BaseUiRectangleLib/BaseUiRectangleLib.inf
+  PlatformThemeLib         |MsGraphicsPkg/Library/SamplePlatformThemeLib/PlatformThemeLib.inf
+  ##MsUiThemeCopyLib         |MsGraphicsPkg/Library/MsUiThemeCopyLib/MsUiThemeCopyLib.inf # handles copying the theme
+  
+  # CPU/SMBUS/Peripherals Libraries
+  CpuLib              |MdePkg/Library/BaseCpuLib/BaseCpuLib.inf
+  SynchronizationLib  |MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf
+  CacheMaintenanceLib |ArmPkg/Library/ArmCacheMaintenanceLib/ArmCacheMaintenanceLib.inf
+  
+  # File Libraries
+  FileExplorerLib   |MdeModulePkg/Library/FileExplorerLib/FileExplorerLib.inf
+  UefiDecompressLib |MdePkg/Library/BaseUefiDecompressLib/BaseUefiDecompressLib.inf
+  
+  # Capsule/Versioning Libraries
+  CapsuleLib       |MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
+  ##MuUefiVersionLib |OemPkg/Library/MuUefiVersionLib/MuUefiVersionLib.inf
+  
+  # Sorter helper Libraries
+  SortLib              |MdeModulePkg/Library/UefiSortLib/UefiSortLib.inf
+  OrderedCollectionLib |MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf
+  
+  # IO Libraries
+  IoLib         |MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
+!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
+  SerialPortLib |Lumia950XLPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
+!else
+  SerialPortLib |MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
+!endif
+  
+  # USB Libraries
+  UefiUsbLib   |MdePkg/Library/UefiUsbLib/UefiUsbLib.inf
+  
+  # Security Libraries
+  ##SecurityManagementLib |MdeModulePkg/Library/DxeSecurityManagementLib/DxeSecurityManagementLib.inf
+  BaseBinSecurityLib    |MdePkg/Library/BaseBinSecurityLibNull/BaseBinSecurityLibNull.inf
+  ##SecurityLockAuditLib  |MdeModulePkg/Library/SecurityLockAuditDebugMessageLib/SecurityLockAuditDebugMessageLib.inf
+  ##PasswordStoreLib      |MsCorePkg/Library/PasswordStoreLibNull/PasswordStoreLibNull.inf
+  PasswordPolicyLib     |OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
+  MsSecureBootLib       |OemPkg/Library/MsSecureBootLib/MsSecureBootLib.inf
+  PlatformKeyLib        |OemPkg/Library/PlatformKeyLibNull/PlatformKeyLibNull.inf
+
+  SecurityLockAuditLib|MdeModulePkg/Library/SecurityLockAuditLibNull/SecurityLockAuditLibNull.inf # todo: replace
+  
+  # Memory Libraries
+  BaseMemoryLib                  |MdePkg/Library/BaseMemoryLib/BaseMemoryLib.inf
+  MemoryTypeInfoSecVarCheckLib   |MdeModulePkg/Library/MemoryTypeInfoSecVarCheckLib/MemoryTypeInfoSecVarCheckLib.inf
+  MemoryTypeInformationChangeLib |MdeModulePkg/Library/MemoryTypeInformationChangeLibNull/MemoryTypeInformationChangeLibNull.inf
+  MemoryProtectionLib            |MdeModulePkg/Library/BaseMemoryProtectionLibNull/BaseMemoryProtectionLibNull.inf
+  
+  # Variable Libraries
+  VariablePolicyLib       |MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLib.inf
+  VariablePolicyHelperLib |MdeModulePkg/Library/VariablePolicyHelperLib/VariablePolicyHelperLib.inf
+  AuthVariableLib         |MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
+  VarCheckLib             |MdeModulePkg/Library/VarCheckLib/VarCheckLib.inf
+  
+  # Crypto Libraries
+  RngLib   |MdePkg/Library/BaseRngLibNull/BaseRngLibNull.inf
+  
+  # Power/Thermal/Power State Libraries
+  ResetUtilityLib |MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
+
+  # TPM Libraries
+  TpmMeasurementLib |MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
+  
+  # DFCI / XML / JSON Libraries
+  DfciDeviceIdSupportLib            |DfciPkg/Library/DfciDeviceIdSupportLibNull/DfciDeviceIdSupportLibNull.inf
+  DfciSettingChangedNotificationLib |DfciPkg/Library/DfciSettingChangedNotificationLib/DfciSettingChangedNotificationLibNull.inf
+
+  # Platform devices path libraries
+  MsPlatformDevicesLib |PcBdsPkg/Library/MsPlatformDevicesLibNull/MsPlatformDevicesLibNull.inf
+  DevicePathLib        |MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
+  
+  # Network libraries
+  NetLib   |NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
+
   ArmLib|ArmPkg/Library/ArmLib/ArmBaseLib.inf
   ArmMmuLib|ArmPkg/Library/ArmMmuLib/ArmMmuBaseLib.inf
   ArmGenericTimerCounterLib|ArmPkg/Library/ArmGenericTimerPhyCounterLib/ArmGenericTimerPhyCounterLib.inf
@@ -255,76 +384,27 @@
   ArmGicLib|ArmPkg/Drivers/ArmGic/ArmGicLib.inf
   ArmSmcLib|ArmPkg/Library/ArmSmcLib/ArmSmcLib.inf
   ArmGicArchLib|ArmPkg/Library/ArmGicArchLib/ArmGicArchLib.inf
-  TimerLib|ArmPkg/Library/ArmArchTimerLib/ArmArchTimerLib.inf
-  BaseLib|MdePkg/Library/BaseLib/BaseLib.inf
-  BaseMemoryLib|MdePkg/Library/BaseMemoryLib/BaseMemoryLib.inf
   BaseSynchronizationLib|MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf
-  BootLogoLib|MdeModulePkg/Library/BootLogoLib/BootLogoLib.inf
-  BmpSupportLib|MdeModulePkg/Library/BaseBmpSupportLib/BaseBmpSupportLib.inf
-  CapsuleLib|MdeModulePkg/Library/DxeCapsuleLibNull/DxeCapsuleLibNull.inf
-  CacheMaintenanceLib|ArmPkg/Library/ArmCacheMaintenanceLib/ArmCacheMaintenanceLib.inf
   CompilerIntrinsicsLib|ArmPkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf
   NULL|ArmPkg/Library/CompilerIntrinsicsLib/CompilerIntrinsicsLib.inf
   NULL|MdePkg/Library/BaseStackCheckLib/BaseStackCheckLib.inf
   CpuExceptionHandlerLib|ArmPkg/Library/ArmExceptionLib/ArmExceptionLib.inf
-  CpuLib|MdePkg/Library/BaseCpuLib/BaseCpuLib.inf
-  CustomizedDisplayLib|MdeModulePkg/Library/CustomizedDisplayLib/CustomizedDisplayLib.inf
   DefaultExceptionHandlerLib|ArmPkg/Library/DefaultExceptionHandlerLib/DefaultExceptionHandlerLib.inf
-  DebugAgentLib|MdeModulePkg/Library/DebugAgentLibNull/DebugAgentLibNull.inf
-  DevicePathLib|MdePkg/Library/UefiDevicePathLib/UefiDevicePathLib.inf
   DebugLib|MdePkg/Library/BaseDebugLibSerialPort/BaseDebugLibSerialPort.inf
-  DebugPrintErrorLevelLib|MdePkg/Library/BaseDebugPrintErrorLevelLib/BaseDebugPrintErrorLevelLib.inf
-  DxeServicesLib|MdePkg/Library/DxeServicesLib/DxeServicesLib.inf
-  DxeServicesTableLib|MdePkg/Library/DxeServicesTableLib/DxeServicesTableLib.inf
   ExtractGuidedSectionLib|EmbeddedPkg/Library/PrePiExtractGuidedSectionLib/PrePiExtractGuidedSectionLib.inf
-  FileExplorerLib|MdeModulePkg/Library/FileExplorerLib/FileExplorerLib.inf
   FdtLib|EmbeddedPkg/Library/FdtLib/FdtLib.inf
-  FrameBufferBltLib|MdeModulePkg/Library/FrameBufferBltLib/FrameBufferBltLib.inf
   HobLib|MdePkg/Library/DxeHobLib/DxeHobLib.inf
-  HiiLib|MdeModulePkg/Library/UefiHiiLib/UefiHiiLib.inf
-  IoLib|MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
   LzmaDecompressLib|MdeModulePkg/Library/LzmaCustomDecompressLib/LzmaCustomDecompressLib.inf
-  NetLib|NetworkPkg/Library/DxeNetLib/DxeNetLib.inf
   DpcLib|NetworkPkg/Library/DxeDpcLib/DxeDpcLib.inf
   UdpIoLib|NetworkPkg/Library/DxeUdpIoLib/DxeUdpIoLib.inf
   IpIoLib|NetworkPkg/Library/DxeIpIoLib/DxeIpIoLib.inf
-  PcdLib|MdePkg/Library/DxePcdLib/DxePcdLib.inf
-  PeCoffExtraActionLib|MdePkg/Library/BasePeCoffExtraActionLibNull/BasePeCoffExtraActionLibNull.inf
-  PeCoffLib|MdePkg/Library/BasePeCoffLib/BasePeCoffLib.inf
-  PeCoffGetEntryPointLib|MdePkg/Library/BasePeCoffGetEntryPointLib/BasePeCoffGetEntryPointLib.inf
-  PerformanceLib|MdePkg/Library/BasePerformanceLibNull/BasePerformanceLibNull.inf
   PrePiLib|EmbeddedPkg/Library/PrePiLib/PrePiLib.inf
   PrePiHobListPointerLib|ArmPlatformPkg/Library/PrePiHobListPointerLib/PrePiHobListPointerLib.inf
   PrePiMemoryAllocationLib|EmbeddedPkg/Library/PrePiMemoryAllocationLib/PrePiMemoryAllocationLib.inf
-  PrintLib|MdePkg/Library/BasePrintLib/BasePrintLib.inf
-  OrderedCollectionLib|MdePkg/Library/BaseOrderedCollectionRedBlackTreeLib/BaseOrderedCollectionRedBlackTreeLib.inf
-  SafeIntLib|MdePkg/Library/BaseSafeIntLib/BaseSafeIntLib.inf
-  SortLib|MdeModulePkg/Library/UefiSortLib/UefiSortLib.inf
-  SynchronizationLib|MdePkg/Library/BaseSynchronizationLib/BaseSynchronizationLib.inf
-  UefiLib|MdePkg/Library/UefiLib/UefiLib.inf
-  UefiDecompressLib|MdePkg/Library/BaseUefiDecompressLib/BaseUefiDecompressLib.inf
-  UefiBootServicesTableLib|MdePkg/Library/UefiBootServicesTableLib/UefiBootServicesTableLib.inf
   UefiRuntimeLib|MdePkg/Library/UefiRuntimeLib/UefiRuntimeLib.inf
-  UefiRuntimeServicesTableLib|MdePkg/Library/UefiRuntimeServicesTableLib/UefiRuntimeServicesTableLib.inf
-  UefiDriverEntryPoint|MdePkg/Library/UefiDriverEntryPoint/UefiDriverEntryPoint.inf
-  UefiApplicationEntryPoint|MdePkg/Library/UefiApplicationEntryPoint/UefiApplicationEntryPoint.inf
-  UefiUsbLib|MdePkg/Library/UefiUsbLib/UefiUsbLib.inf
-  UefiBootManagerLib|MdeModulePkg/Library/UefiBootManagerLib/UefiBootManagerLib.inf
-  UefiHiiServicesLib|MdeModulePkg/Library/UefiHiiServicesLib/UefiHiiServicesLib.inf
-  TpmMeasurementLib|MdeModulePkg/Library/TpmMeasurementLibNull/TpmMeasurementLibNull.inf
-  AuthVariableLib|MdeModulePkg/Library/AuthVariableLibNull/AuthVariableLibNull.inf
-  VarCheckLib|MdeModulePkg/Library/VarCheckLib/VarCheckLib.inf
-  VariablePolicyLib|MdeModulePkg/Library/VariablePolicyLib/VariablePolicyLib.inf
-  VariablePolicyHelperLib|MdeModulePkg/Library/VariablePolicyHelperLib/VariablePolicyHelperLib.inf
   TimeBaseLib|EmbeddedPkg/Library/TimeBaseLib/TimeBaseLib.inf
 
   # Platform Drivers
-!if $(USE_SCREEN_FOR_SERIAL_OUTPUT) == 1
-  SerialPortLib|Lumia950XLPkg/Library/FrameBufferSerialPortLib/FrameBufferSerialPortLib.inf
-!else
-  SerialPortLib|MdePkg/Library/BaseSerialPortLibNull/BaseSerialPortLibNull.inf
-!endif
-  
   MemoryInitPeiLib|Lumia950XLPkg/Library/MemoryInitPeiLib/PeiMemoryAllocationLib.inf
   PlatformPeiLib|Lumia950XLPkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   # PlatformBootManagerLib|Lumia950XLPkg/Library/PlatformBootManagerLib/PlatformBootManagerLib.inf
@@ -373,26 +453,9 @@
   # LittleVglLib|Lumia950XLPkg/Library/LittleVglLib/LittleVglLib.inf
   # LodePngLib|Lumia950XLPkg/Library/LodePngLib/LodePngLib.inf
 
-  # FrontPage
-  PasswordPolicyLib|OemPkg/Library/PasswordPolicyLib/PasswordPolicyLib.inf
-  MsSecureBootLib|OemPkg/Library/MsSecureBootLib/MsSecureBootLib.inf
-  PlatformKeyLib|OemPkg/Library/PlatformKeyLibNull/PlatformKeyLibNull.inf
-  RngLib|MdePkg/Library/BaseRngLibNull/BaseRngLibNull.inf
-  MsPlatformDevicesLib|PcBdsPkg/Library/MsPlatformDevicesLibNull/MsPlatformDevicesLibNull.inf
-  DfciSettingChangedNotificationLib|DfciPkg/Library/DfciSettingChangedNotificationLib/DfciSettingChangedNotificationLibNull.inf
-  DfciDeviceIdSupportLib|DfciPkg/Library/DfciDeviceIdSupportLibNull/DfciDeviceIdSupportLibNull.inf
-  PlatformThemeLib|MsGraphicsPkg/Library/SamplePlatformThemeLib/PlatformThemeLib.inf
-
   ResetSystemLib|ArmPkg/Library/ArmSmcPsciResetSystemLib/ArmSmcPsciResetSystemLib.inf
-  MemoryProtectionLib|MdeModulePkg/Library/BaseMemoryProtectionLibNull/BaseMemoryProtectionLibNull.inf
-  MemoryTypeInformationChangeLib|MdeModulePkg/Library/MemoryTypeInformationChangeLibNull/MemoryTypeInformationChangeLibNull.inf
   PcdDatabaseLoaderLib|MdeModulePkg/Library/PcdDatabaseLoaderLib/Dxe/PcdDatabaseLoaderLibDxe.inf
-
-  BaseBinSecurityLib|MdePkg/Library/BaseBinSecurityLibNull/BaseBinSecurityLibNull.inf
-  ResetUtilityLib|MdeModulePkg/Library/ResetUtilityLib/ResetUtilityLib.inf
-  SecurityLockAuditLib|MdeModulePkg/Library/SecurityLockAuditLibNull/SecurityLockAuditLibNull.inf
-  MemoryTypeInfoSecVarCheckLib|MdeModulePkg/Library/MemoryTypeInfoSecVarCheckLib/MemoryTypeInfoSecVarCheckLib.inf
-
+  
 [LibraryClasses.common.SEC]
   HobLib|EmbeddedPkg/Library/PrePiHobLib/PrePiHobLib.inf
   MemoryAllocationLib|EmbeddedPkg/Library/PrePiMemoryAllocationLib/PrePiMemoryAllocationLib.inf
